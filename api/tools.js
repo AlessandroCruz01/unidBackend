@@ -11,7 +11,11 @@ module.exports = app => {
         if(req.params.id) tool.id = req.params.id
 
         try {
-            existsOrError(tool.title, "Titulo nao informado")
+            existsOrError(tool.title, msg='Titulo nao informado')
+            existsOrError(tool.link, msg='Link nao informado')
+            existsOrError(tool.description, msg='Descrição nao informado')
+            existsOrError(tool.tags, msg='Tag nao informadoro')
+    
         } catch {
             return res.status(400).send(msg)
         }
